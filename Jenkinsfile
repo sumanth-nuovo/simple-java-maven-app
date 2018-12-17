@@ -21,9 +21,10 @@ pipeline {
                 }
             }
         }
-	stage('Deliver') {
+	stage('Docker build') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh 'docker build -t simple-java-maven-app .'
+                sh 'docker tag simple-java-maven-app:latest namasumanth/simple-java-maven-app:latest'
             }
         }
     }
