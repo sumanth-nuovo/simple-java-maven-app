@@ -16,10 +16,15 @@ pipeline {
                 }
             }
         }
+    stage('Docker version') {
+                steps {
+                    sh 'echo "sumanth" | sudo -S -k docker version'
+                }
+            }
 	stage('Build image') {
             steps {
-                sh ("docker build -f Dockerfile -t simple-java-maven-app .")
-                sh ("docker tag simple-java-maven-app:latest namasumanth/simple-java-maven-app:latest")
+                sh 'echo "sumanth" | sudo -S -k docker build -f Dockerfile -t simple-java-maven-app .'
+                sh 'echo "sumanth" | sudo -S -k docker tag simple-java-maven-app:latest namasumanth/simple-java-maven-app:latest'
             }
         }
     }
