@@ -25,8 +25,13 @@ pipeline {
             steps {
                 sh 'echo "sumanth" | sudo -S -k docker build -f Dockerfile -t simple-java-maven-app .'
                 sh 'echo "sumanth" | sudo -S -k docker tag simple-java-maven-app:latest namasumanth/simple-java-maven-app:latest'
-                sh 'echo "sumanth" | sudo -S -k docker push namasumanth/simple-java-maven-app:latest'
             }
         }
+     stage('Push image') {
+                 steps {
+                     sh 'echo "sumanth" | sudo -S -k docker login'
+                     sh 'echo "sumanth" | sudo -S -k docker push namasumanth/simple-java-maven-app:latest'
+                 }
+             }
     }
 }
