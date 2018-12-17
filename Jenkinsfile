@@ -29,7 +29,7 @@ pipeline {
         }
      stage('Push image') {
                  steps {
-                     sh 'echo "sumanth" | sudo -S -k docker login'
+                     sh 'echo "sumanth" | sudo -S -k docker login -u namasumanth -p 9989785861'
                      sh 'echo "sumanth" | sudo -S -k docker push namasumanth/simple-java-maven-app:latest'
                  }
              }
